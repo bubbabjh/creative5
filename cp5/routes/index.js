@@ -7,7 +7,8 @@ mongoose.connect('mongodb://localhost/activity', { useNewUrlParser: true });
 
 var aSchema = mongoose.Schema({ //Defines the Schema for this database
     name: String,
-    idea: String
+    idea: String,
+    date: { type: Date, default: Date.now }
 });
 
 var Activity = mongoose.model('Activity', aSchema);
@@ -17,6 +18,12 @@ db.on('error', console.error.bind(console, 'connection error:')); //Checks for c
 db.once('open', function() { //Lets us know when we're connected
     console.log('Connected');
 });
+
+router.delete('/activity', function(req, res, next) {
+    Activity.collection.deleteMany(
+        )
+    res.sendStatus(200);
+})
 
 router.post('/activity', function(req, res, next) {
     console.log("in post route");
@@ -40,7 +47,7 @@ router.get("/activity", function(req, res, next) {
             console.log("err at line 39");
         }
         else {
-            console.log(list);
+            //console.log(list);
             res.json(list);
         }
     });

@@ -22,13 +22,20 @@
         <button type="submit">Submit</button>
     </form>
     
+   <!-- <form ng-submit="deletePost()">
+        <input type="text" ng-model = "toDelete" placeholder = "delete this"> <br>
+        <button type="submit">Submit</button> 
+    </form> -->
+    
     <div id="activities">
-        <ul ng-repeat="activity in activities | limitTo:9:0">
+        <ul ng-repeat="activity in activities | orderBy: '-date' | limitTo: (setLimit())">
             <li>
                 <p>{{activity.idea}} -{{activity.name}}</p>
             </li>
         </ul>
     </div>
+    <form ng-submit = "loadMore()" ><button type="submit">Load More</button></form>
+    
 
 </body>
 

@@ -20,6 +20,10 @@ function mainFact($http) {
                 .then(function(resp) {
                     console.log("Post worked");
                 })
+        },
+        delete: function(formData) {
+            return $http
+                .delete(API_ROOT, formData)
         }
     }
 }
@@ -27,6 +31,7 @@ function mainFact($http) {
 function mainCtrl($scope, mainFact) {
 
     $scope.activities = []
+    var totalPosts = 10;
 
     mainFact.get()
         .then(function(data) {
@@ -36,7 +41,22 @@ function mainCtrl($scope, mainFact) {
         var postData = { name: $scope.name, idea: $scope.idea };
         console.log(postData);
         mainFact.post(postData); // Send the data to the back end
-        alert("Your post has been posted");
+        //alert("Your post has been posted");
         location.reload();
+    }
+    $scope.deletePost = function()
+    {
+        var postData = {name: $scope.toDelete};
+        mainFact.delete(postData);
+        location.reload();
+    }
+    $scope.setLimit = function()
+    {
+        return totalPosts;
+    }
+    $scope.loadMore = function()
+    {
+        totalPosts += 10;
+        //location.reload();
     }
 }
