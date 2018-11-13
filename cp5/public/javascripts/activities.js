@@ -31,7 +31,7 @@ function mainFact($http) {
 function mainCtrl($scope, mainFact) {
 
     $scope.activities = []
-    var totalPosts = 10;
+    var totalPosts = 9;
 
     mainFact.get()
         .then(function(data) {
@@ -56,7 +56,7 @@ function mainCtrl($scope, mainFact) {
     }
     $scope.loadMore = function()
     {
-        totalPosts += 10;
+        totalPosts += 9;
         //location.reload();
     }
 }

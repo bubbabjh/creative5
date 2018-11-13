@@ -14,27 +14,28 @@
 </head>
 
 <body ng-app="app" ng-controller="mainCtrl">
-    <h1>Things to do in provo</h1>
+    <center>
+    <h1 id="header">Things to do in provo</h1>
     
     <form ng-submit= "addPost()">
         <input type="text" ng-model = "name" placeholder = "Enter your name"> <br>
         <input type="text" ng-model = "idea" placeholder = "Enter your idea"> <br>
         <button type="submit">Submit</button>
     </form>
+    </center>
     
    <!-- <form ng-submit="deletePost()">
-        <input type="text" ng-model = "toDelete" placeholder = "delete this"> <br>
         <button type="submit">Submit</button> 
     </form> -->
     
     <div id="activities">
         <ul ng-repeat="activity in activities | orderBy: '-date' | limitTo: (setLimit())">
-            <li>
+            <li class = "col-xs-4">
                 <p>{{activity.idea}} -{{activity.name}}</p>
             </li>
         </ul>
     </div>
-    <form ng-submit = "loadMore()" ><button type="submit">Load More</button></form>
+    <center><form ng-submit = "loadMore()" ><button type="submit">Load More</button></form></center>
     
 
 </body>

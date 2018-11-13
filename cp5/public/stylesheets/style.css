@@ -1,8 +1,10 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+body
+{
+  background-image:url("http://studentalumni.byu.edu/sites/default/files/Hike%20rotating%205.jpg");
 }
 
-a {
-  color: #00B7FF;
+p, h1, #header, ul, li{
+  color: white;
+  word-wrap:break-word;
 }
